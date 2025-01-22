@@ -1,0 +1,123 @@
+openapi: 3.0.0
+info:
+  title: Book Checker API
+  version: 1.0.0
+paths:
+  /get-book-chapter-questions:
+    post:
+      operationId: get-book-chapter-questions
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/BookChapter"
+
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/BookChapterQuestions"
+        '400':
+          description: Bad request
+  /check-answers:
+    post:
+      operationId: check-answers
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/UserAnswers"
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AnswersCheck"
+        '400':
+          description: Bad request
+components:
+  schemas:
+    BookChapterQuestions:
+      type: object
+      properties:
+        questions:
+          type: array
+          items:
+            $ref: "#/components/schemas/Question"
+    BookChapter:
+      type: object
+      required:
+        - bookName
+        - chapter
+        - language
+      properties:
+        bookName:
+          type: string
+          example: "Sample input text"
+          minLength: 1
+          maxLength: 50
+          nullable: false
+        chapter:
+          type: integer
+          minimum: 1
+          nullable: false
+        language:
+          type: string
+          nullable: false
+          default: "english"
+    AnswersCheck:
+      type: object
+      properties:
+        correct:
+          type: boolean
+        answers:
+          type: array
+          items:
+            $ref: "#/components/schemas/UserAnswerCheck"
+    UserAnswer:
+      type: object
+      properties:
+        questionId:
+          type: string
+        answerId:
+          type: string
+          example: "Paris"
+    UserAnswerCheck:
+      type: object
+      properties:
+        questionId:
+          type: string
+        answerId:
+          type: string
+          example: "Paris"
+        correct:
+          type: boolean
+    UserAnswers:
+      type: array
+      items:
+        $ref: "#/components/schemas/UserAnswer"
+    Answer:
+      type: object
+      properties:
+        id:
+          type: string
+        answer:
+          type: string
+          example: "Paris"
+    Question:
+      type: object
+      properties:
+        id:
+          type: string
+        question:
+          type: string
+          example: "What is the capital of France?"
+        answers:
+          type: array
+          items:
+            $ref: "#/components/schemas/Answer"

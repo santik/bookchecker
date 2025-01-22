@@ -1,0 +1,46 @@
+openapi: 3.0.0
+info:
+  title: Book Checker API
+  version: 1.0.0
+paths:
+  /login:
+    post:
+      operationId: login
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/User"
+
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AuthToken"
+        '400':
+          description: Bad request
+components:
+  schemas:
+    User:
+      type: object
+      required:
+        - username
+        - password
+      properties:
+        username:
+          type: string
+          example: "Sample input text"
+          minLength: 1
+          maxLength: 50
+          nullable: false
+        password:
+          type: string
+          nullable: false
+    AuthToken:
+      type: object
+      properties:
+        token:
+          type: string

@@ -1,0 +1,44 @@
+{
+  "questions": [
+    {
+      "question": "What is the main setting of Chapter 1?",
+      "answers": [
+        {"answer": "A bustling city", "isCorrect": false},
+        {"answer": "A quiet village", "isCorrect": true},
+        {"answer": "A snowy mountain", "isCorrect": false}
+      ]
+    },
+    {
+      "question": "Who is the protagonist introduced in Chapter 1?",
+      "answers": [
+        {"answer": "Lila", "isCorrect": false},
+        {"answer": "Dursen", "isCorrect": true},
+        {"answer": "Milo", "isCorrect": false}
+      ]
+    },
+    {
+      "question": "What season is depicted at the beginning of the story?",
+      "answers": [
+        {"answer": "Spring", "isCorrect": false},
+        {"answer": "Winter", "isCorrect": true},
+        {"answer": "Autumn", "isCorrect": false}
+      ]
+    },
+    {
+      "question": "What is Dursen's main concern in Chapter 1?",
+      "answers": [
+        {"answer": "Finding food", "isCorrect": false},
+        {"answer": "Surviving the cold", "isCorrect": true},
+        {"answer": "Making friends", "isCorrect": false}
+      ]
+    },
+    {
+      "question": "What does Dursen encounter during his walk?",
+      "answers": [
+        {"answer": "A pack of wolves", "isCorrect": false},
+        {"answer": "An abandoned cabin", "isCorrect": true},
+        {"answer": "A frozen lake", "isCorrect": false}
+      ]
+    }
+  ]
+}
